@@ -6,4 +6,4 @@ def main(page: ft.Page):
     app = MainWindow(page)
 if __name__ == "__main__":
   
-    ft.run(main) # Usamos la nueva sintaxis
+    ft.run(main) 

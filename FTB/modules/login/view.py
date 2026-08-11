@@ -9,7 +9,6 @@ class LoginView(ft.Container):
         )
         self.controlador = controlador
 
-        # --- SOLUCIÓN: Usamos ft.Icons para que el motor gráfico no falle ---
         self.txt_usuario = ft.TextField(
             label="Usuario", 
             width=400, 
@@ -27,14 +26,14 @@ class LoginView(ft.Container):
             on_click=self.controlador.validar_login
         )
         
-        # --- SOLUCIÓN: Usamos ft.Colors ---
+        # --- Usamos ft.Colors ---
         self.lbl_error = ft.Text("", color=ft.Colors.ERROR)
 
         self.content = ft.Card(
             content=ft.Container(
                 content=ft.Column(
                     controls=[
-                        # --- SOLUCIÓN: ft.Icons y ft.Colors juntos ---
+                        # ---  ft.Icons y ft.Colors juntos ---
                         ft.Icon(ft.Icons.LOCK_PERSON, size=60, color=ft.Colors.PRIMARY),
                         ft.Text("Bienvenido a FTB", size=30, weight=ft.FontWeight.BOLD),
                         self.txt_usuario,

@@ -1,11 +1,11 @@
 # core/main_window.py
 import flet as ft
-from modules.login.Controller import LoginController
+from modules.login.Controller import LoginController 
 
 class MainWindow:
     def __init__(self, page: ft.Page):
         self.page = page
-        self.page.title = "Vida Sync - FTB"
+        self.page.title = "FTB"
         
         self.page.window.width = 1100
         self.page.window.height = 750
@@ -33,38 +33,35 @@ class MainWindow:
         self.page.vertical_alignment = ft.MainAxisAlignment.START
         self.page.horizontal_alignment = ft.CrossAxisAlignment.START
 
-        # --- 1. BARRA SUPERIOR BLINDADA ---
+        # --- 1. BARRA SUPERIOR (Íconos corregidos con ft.Icons) ---
         self.page.appbar = ft.AppBar(
-            leading=ft.Icon("space_dashboard_rounded", color="#00b4d8"), # Color turquesa en hex
+            leading=ft.Icon(ft.Icons.SPACE_DASHBOARD_ROUNDED, color="#00b4d8"), 
             leading_width=40,
-            title=ft.Text("Vida Sync", weight=ft.FontWeight.BOLD),
+            title=ft.Text("FTB", weight=ft.FontWeight.BOLD),
             center_title=False,
-            bgcolor="#f4f6f9", # Un color gris muy claro y seguro
+            bgcolor="#f4f6f9", 
             actions=[
                 ft.Container(
-                    content=ft.TextField(hint_text="Search...", width=200, height=40, text_size=14, prefix_icon="search"),
+                    content=ft.TextField(hint_text="Search...", width=200, height=40, text_size=14, prefix_icon=ft.Icons.SEARCH),
                     padding=10
                 ),
-                ft.IconButton("notifications_outlined"),
-                ft.Row([
-                    ft.CircleAvatar(content=ft.Text("ML"), bgcolor="#00b4d8", color="white", radius=15),
-                    ft.Text("Mariana López", weight=ft.FontWeight.W_500),
-                    ft.IconButton("keyboard_arrow_down")
-                ]),
+                # A los IconButton hay que especificarles "icon="
+                ft.IconButton(icon=ft.Icons.NOTIFICATIONS_OUTLINED),
+            
                 ft.Container(width=10) 
             ]
         )
 
-        # --- 2. MENÚ LATERAL BLINDADO ---
+        # --- 2. MENÚ LATERAL (Íconos corregidos con ft.Icons) ---
         self.menu_lateral = ft.NavigationRail(
             selected_index=1, 
             label_type=ft.NavigationRailLabelType.ALL,
             min_width=100,
             destinations=[
-                ft.NavigationRailDestination(icon="account_balance_wallet_outlined", selected_icon="account_balance_wallet", label="Finanzas"),
-                ft.NavigationRailDestination(icon="notes_outlined", selected_icon="notes", label="Notas"),
-                ft.NavigationRailDestination(icon="fitness_center_outlined", selected_icon="fitness_center", label="Gym"),
-                ft.NavigationRailDestination(icon="settings_outlined", selected_icon="settings", label="Settings"),
+                ft.NavigationRailDestination(icon=ft.Icons.ACCOUNT_BALANCE_WALLET_OUTLINED, selected_icon=ft.Icons.ACCOUNT_BALANCE_WALLET, label="Finanzas"),
+                ft.NavigationRailDestination(icon=ft.Icons.NOTES_OUTLINED, selected_icon=ft.Icons.NOTES, label="Notas"),
+                ft.NavigationRailDestination(icon=ft.Icons.FITNESS_CENTER_OUTLINED, selected_icon=ft.Icons.FITNESS_CENTER, label="Gym"),
+                ft.NavigationRailDestination(icon=ft.Icons.SETTINGS_OUTLINED, selected_icon=ft.Icons.SETTINGS, label="Settings"),
             ],
             on_change=self.cambiar_modulo 
         )
