@@ -1,6 +1,7 @@
 # core/main_window.py
 import flet as ft
 from modules.login.Controller import LoginController 
+from modules.tasks.controller import TasksController
 
 class MainWindow:
     def __init__(self, page: ft.Page):
@@ -93,7 +94,8 @@ class MainWindow:
         if indice_seleccionado == 0:
             self.contenedor_modulos.content = ft.Text("Aquí irá la vista de Finanzas", size=30)
         elif indice_seleccionado == 1:
-            self.contenedor_modulos.content = ft.Text("Aquí irá la vista de Notas (To-Do)", size=30)
+            controlador_notas=TasksController()
+            self.contenedor_modulos.content = controlador_notas.obtener_vista()
         elif indice_seleccionado == 2:
             self.contenedor_modulos.content = ft.Text("Aquí irá la vista de Gym", size=30)
         elif indice_seleccionado == 3:
