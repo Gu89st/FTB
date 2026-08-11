@@ -1,10 +1,9 @@
-"""FTB - Application entry point
+# main.py
+import flet as ft
+from core.main_window import MainWindow
 
-Run this file to start the desktop application.
-"""
-
-def main():
-    print("FTB application starter")
-
+def main(page: ft.Page):
+    app = MainWindow(page)
 if __name__ == "__main__":
-    main()
+  
+    ft.run(main) # Usamos la nueva sintaxis
