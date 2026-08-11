@@ -1,0 +1,2 @@
+# Requirements for FTB desktop app
+# Example: PyQt5, pandas, SQLAlchemy, requests
